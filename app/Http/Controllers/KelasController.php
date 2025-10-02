@@ -27,7 +27,7 @@ class KelasController extends Controller
             'kode_kelas' => 'required|integer|unique:kelas,kode_kelas',
         ]);
 
-        kelas::create([
+        Kelas::create([
             'nama_kelas' => $request->nama_kelas,
             'kode_kelas' => $request->kode_kelas,
         ]);
@@ -40,21 +40,21 @@ class KelasController extends Controller
     // Tampilkan kelas berdasarkan ID
     public function show($id)
     {
-        $kelas = kelas::findOrFail($id);
+        $kelas = Kelas::findOrFail($id);
         return response()->json($kelas);
     }
 
     // Update kelas
     public function update(Request $request, $id)
     {
-        $kelas = kelas::findOrFail($id);
+        $kelas = Kelas::findOrFail($id);
 
         $request->validate([
             'nama_kelas' => 'required|string|max:255',
             'kode_kelas' => 'required|string|max:10',
         ]);
 
-        $kelas = kelas::findOrFail($id);
+        $kelas = Kelas::findOrFail($id);
         $kelas->nama_kelas = $request->nama_kelas;
         $kelas->kode_kelas = $request->kode_kelas;
         $kelas->save();
@@ -64,7 +64,7 @@ class KelasController extends Controller
 
     public function edit($id)
     {
-        $kelas = kelas::findOrFail($id);
+        $kelas = Kelas::findOrFail($id);
         return view('kelas.edit', compact('kelas'));
     }
 
@@ -72,7 +72,7 @@ class KelasController extends Controller
     // Hapus kelas
     public function destroy($id)
     {
-        $kelas = kelas::findOrFail($id);
+        $kelas = Kelas::findOrFail($id);
         $kelas->delete();
 
         return redirect()->route('kelas.index')->with('success', 'kelas berhasil dihapus');

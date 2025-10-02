@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama_kelas');
             $table->integer('kode_kelas');
             $table->timestamps();
-            $table->foreign('kelas_id')->references('id_kelas')->on('kelas')->onDelete('cascade');
         });
     }
 
