@@ -24,7 +24,7 @@ class KelasController extends Controller
     {
         $request->validate([
             'nama_kelas' => 'required|string|max:255',
-            'kode_kelas' => 'required|integer|unique:kelas,kode_kelas',
+            'kode_kelas' => 'required|integer',
         ]);
 
         Kelas::create([

@@ -26,7 +26,7 @@
             <tbody>
                 @forelse($kelas as $kls)
                     <tr>
-                        <td>{{ $kls->id_kelas }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $kls->nama_kelas }}</td>
                         <td>{{ $kls->kode_kelas }}</td>
                         <td>

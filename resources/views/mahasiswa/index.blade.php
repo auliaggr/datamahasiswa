@@ -29,7 +29,7 @@
             <tbody>
                 @forelse($mahasiswa as $mhs)
                     <tr>
-                        <td>{{ $mhs->id_mahasiswa }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $mhs->nim }}</td>
                         <td>{{ $mhs->nama }}</td>
                         <td>{{ $mhs->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>

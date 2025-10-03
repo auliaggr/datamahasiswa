@@ -26,7 +26,7 @@
             <tbody>
                 @forelse($prodi as $pd)
                     <tr>
-                        <td>{{ $pd->id_prodi }}</td>
+                        <<td>{{ $loop->iteration }}</td>
                         <td>{{ $pd->nama_prodi }}</td>
                         <td>{{ $pd->kode_prodi }}</td>
                         <td>
