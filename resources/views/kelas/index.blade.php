@@ -12,8 +12,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">Data Mahasiswa
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ asset('img/logo.png') }}" class="fw-bold" alt="" width="30" height="30"> IPB UNIVERSITY
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,7 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('prodi.index') }}">Program Studi</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item fw-bold active">
                         <a class="nav-link" aria-current="page" href="{{ route('kelas.index') }}">Kelas</a>
                     </li>
                 </ul>
@@ -37,9 +37,10 @@
     </nav>
     <div class="container">
         <div class="text-center">
-            <a href="/kelas/create" class="btn btn-dark m-5">Tambah Data</a>
+            <h2 class="my-5">DAFTAR KELAS</h2>
+            <a href="/kelas/create" class="btn btn-dark">Tambah Data</a>
         </div>
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center my-5">
             <thead>
                 <tr>
                     <th scope="col">No</th>

@@ -10,22 +10,28 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container py-5">
         <div class="text-center m-5">
             <h2>Tambah Data Kelas</h2>
         </div>
-        <form action="{{ route('kelas.store') }}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="nama_kelas" class="form-label">Nama Kelas</label>
-                <input type="text" class="form-control" id="nama_kelas" name="nama_kelas">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <form action="{{ route('kelas.store') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nama_kelas" class="form-label">Nama Kelas</label>
+                        <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="A">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kode_kelas" class="form-label">Kode Kelas</label>
+                        <input type="text" class="form-control" id="kode_kelas" name="kode_kelas" placeholder="1">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark my-4">Simpan</button>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="kode_kelas" class="form-label">Kode Kelas</label>
-                <input type="text" class="form-control" id="kode_kelas" name="kode_kelas">
-            </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </form>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

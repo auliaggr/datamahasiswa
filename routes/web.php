@@ -5,10 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/prodi', [ProdiController::class, 'index'])->name('prodi.index');
 Route::get('/prodi/create', [ProdiController::class, 'create'])->name('prodi.create');

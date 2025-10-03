@@ -14,61 +14,66 @@
         <div class="text-center m-5">
             <h2>Ubah Data Mahasiswa</h2>
         </div>
-        <form action="{{ route('mahasiswa.update', $mahasiswa->id_mahasiswa) }}" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="mb-3">
-                <label for="nim" class="form-label">NIM</label>
-                <input type="text" class="form-control" id="nim" name="nim"
-                    value="{{ old('nim', $mahasiswa->nim) }}">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <form action="{{ route('mahasiswa.update', $mahasiswa->id_mahasiswa) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="mb-3">
+                        <label for="nim" class="form-label">NIM</label>
+                        <input type="text" class="form-control" id="nim" name="nim"
+                            value="{{ old('nim', $mahasiswa->nim) }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama"
+                            value="{{ old('nama', $mahasiswa->nama) }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Kelamin</label> <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="L"
+                                {{ old('jenis_kelamin', $mahasiswa->jenis_kelamin) == 'L' ? 'checked' : '' }} required>
+                            <label class="form-check-label" for="laki">Laki-laki</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="P"
+                                {{ old('jenis_kelamin', $mahasiswa->jenis_kelamin) == 'P' ? 'checked' : '' }} required>
+                            <label class="form-check-label" for="perempuan">Perempuan</label>
+                        </div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="prodi_id" class="form-label">Program Studi</label>
+                        <select class="form-select" id="prodi_id" name="prodi_id" required>
+                            <option value="">-- Pilih Prodi --</option>
+                            @foreach ($prodis as $prodi)
+                                <option value="{{ $prodi->id_prodi }}"
+                                    {{ old('prodi_id', $mahasiswa->prodi_id) == $prodi->id_prodi ? 'selected' : '' }}>
+                                    {{ $prodi->nama_prodi }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="kelas_id" class="form-label">Kelas</label>
+                        <select class="form-select" id="kelas_id" name="kelas_id" required>
+                            <option value="">-- Pilih Kelas --</option>
+                            @foreach ($kelas as $k)
+                                <option value="{{ $k->id_kelas }}"
+                                    {{ old('kelas_id', $mahasiswa->kelas_id) == $k->id_kelas ? 'selected' : '' }}>
+                                    {{ $k->nama_kelas }}{{ $k->kode_kelas }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark my-4">Simpan</button>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama"
-                    value="{{ old('nama', $mahasiswa->nama) }}">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Jenis Kelamin</label> <br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="L"
-                        {{ old('jenis_kelamin', $mahasiswa->jenis_kelamin) == 'L' ? 'checked' : '' }} required>
-                    <label class="form-check-label" for="laki">Laki-laki</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="P"
-                        {{ old('jenis_kelamin', $mahasiswa->jenis_kelamin) == 'P' ? 'checked' : '' }} required>
-                    <label class="form-check-label" for="perempuan">Perempuan</label>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="prodi_id" class="form-label">Program Studi</label>
-                <select class="form-select" id="prodi_id" name="prodi_id" required>
-                    <option value="">-- Pilih Prodi --</option>
-                    @foreach ($prodis as $prodi)
-                        <option value="{{ $prodi->id_prodi }}"
-                            {{ old('prodi_id', $mahasiswa->prodi_id) == $prodi->id_prodi ? 'selected' : '' }}>
-                            {{ $prodi->nama_prodi }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="kelas_id" class="form-label">Kelas</label>
-                <select class="form-select" id="kelas_id" name="kelas_id" required>
-                    <option value="">-- Pilih Kelas --</option>
-                    @foreach ($kelas as $k)
-                        <option value="{{ $k->id_kelas }}"
-                            {{ old('kelas_id', $mahasiswa->kelas_id) == $k->id_kelas ? 'selected' : '' }}>
-                            {{ $k->nama_kelas }}{{ $k->kode_kelas }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </form>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

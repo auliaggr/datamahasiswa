@@ -12,8 +12,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">Data Mahasiswa
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ asset('img/logo.png') }}" class="fw-bold" alt="" width="30" height="30"> IPB UNIVERSITY
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -35,38 +35,41 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <div class="row">
             <div class="col-lg-12 cold-md-12 col-sm-12">
-                <div class="card my-5 py-5">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+                <div class="text-center my-5 py-5">
+                    <h2>SELAMAT DATANG DI SISTEM INFORMASI DATA MAHASISWA</h2>
                 </div>
             </div>
         </div>
         <div class="row my-3">
-            <div class="col-lg-6 cold-md-6 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="col-lg-4 cold-md-4 col-sm-4">
+                <div class="card p-2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">TOTAL MAHASISWA</h5>
+                        <p class="card-text display-6 fw-bold">{{ $totalMahasiswa }}</p>
+                        <a href="{{ route('mahasiswa.index') }}" class="btn btn-dark">Lihat Data</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="col-lg-4 cold-md-4 col-sm-4">
+                <div class="card p-2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">TOTAL PROGRAM STUDI</h5>
+                        <p class="card-text display-6 fw-bold">{{ $totalProdi }}</p>
+                        <a href="{{ route('prodi.index') }}" class="btn btn-dark">Lihat Data</a>
                     </div>
                 </div>
-
+            </div>
+            <div class="col-lg-4 cold-md-4 col-sm-4">
+                <div class="card p-2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">TOTAL KELAS</h5>
+                        <p class="card-text display-6 fw-bold">{{ $totalKelas }}</p>
+                        <a href="{{ route('kelas.index') }}" class="btn btn-dark">Lihat Data</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
