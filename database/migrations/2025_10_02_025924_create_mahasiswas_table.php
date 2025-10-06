@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('id_mahasiswa')->primary();
             $table->string('nim', 11)->unique();;
             $table->string('nama', 255);
-            $table->enum('jenis_kelamin', ['L', 'P']); // Lebih aman pakai enum biar konsisten
-            $table->unsignedBigInteger('prodi_id'); // FK ke prodis
-            $table->unsignedBigInteger('kelas_id'); // FK ke kelas
+            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->unsignedBigInteger('prodi_id');
+            $table->unsignedBigInteger('kelas_id');
             $table->timestamps();
 
             // Foreign Keys
